@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula de CSS - FlexBox</title>
+    <style>
+        .container-flex{
+            display: flex;
+            border: solid 1px black;
+            /* mudando o eixo padrão */
+            /* flex-direction: row-reverse; 
+            flex-direction: column;
+            flex-direction: column-reverse; */
+            flex-direction: row;
+            /* comportamento de pular linha */
+            flex-wrap: wrap;
+
+            /* junção do flex-direction com o flex-wrap */
+            flex-flow: column-reverse wrap;
+            flex-flow: row-reverse wrap;
+        }
+        .container-flex2{
+            display: flex;
+            border: solid 1px blue;
+            height: 400px;
+            /* alterar a posição no eixo principal */
+            /* justify-content: center;
+            justify-content: flex-end; */
+            /* justify-content: flex-start;
+            justify-content: space-around;
+            justify-content: space-between; */
+            justify-content: center;
+
+            /* align-items: center;
+            align-items: flex-end;
+            align-items: stretch; */
+            align-items: center;
+
+            gap: 20px;
+        }
+        .item{
+            font-size: 30px;
+            border: solid 1px red;
+            width: 200px;
+        }
+        .item2{
+            font-size: 30px;
+            border: solid 1px red;
+            width: 200px;
+            /* align-self: flex-end; */
+            flex-grow: 2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exemplos de CSS com FlexBox</h1>
+    <h2>Direção e pula linha</h2>
+    <div class="container-flex">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+    </div>
+    <h2>Posição de elementos no container</h2>
+    <div class="container-flex2">
+        <div class="item">1</div>
+        <div class="item2">2</div>
+        <div class="item">3</div>
+    </div>
+</body>
+</html>
