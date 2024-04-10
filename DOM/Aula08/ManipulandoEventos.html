@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - Manipulando Eventos</title>
+</head>
+<body>
+    <h1>DOM - Manipulando eventos</h1>
+    <p>
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" id="nome" onfocus="comfoco()" onfocusout="semfoco()" >
+        <button onclick="contar(event)">Contar</button>
+    </p>
+</body>
+<script>
+    //Escutador de eventos
+    let titulo = document.querySelector('h1')
+    // titulo.addEventListener('click', () =>{
+    //     window.prompt('Por que você está clicando no título?')
+    //     window.alert("Tudo bem!")
+    // })
+    let conversa = function (){
+        window.prompt('Por que você está clicando no título?')
+        window.alert("Tudo bem!")
+    }
+    titulo.addEventListener('click', conversa)
+
+    //Imperativo
+    function comfoco(){
+        console.log("com foco")
+    }
+    function semfoco(){
+        console.log('sem foco')
+    }
+    function contar(event){
+        event.preventDefault()
+        let texto = document.querySelector('#nome').value
+        window.alert(`Digitou ${texto.length} caracteres`)
+
+    }
+</script>
+</html>

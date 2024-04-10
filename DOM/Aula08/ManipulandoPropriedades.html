@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula DOM - Manipulando Propriedades</title>
+</head>
+<style>
+    .teste {
+        border: solid 1px black;
+    }
+</style>
+<body>
+    <h1>DOM - Manipulando Propriedades</h1>
+    <a href="http://www.google.com">Google</a>
+    <p class="paragrafo">
+        <img src="https://mlogu6g7z5ex.i.optimole.com/cb:RF8R~518a6/w:500/h:159/q:90/ig:avif/f:best/https://facens.br/wp-content/uploads/2021/03/logo-f.png" 
+    alt="Logo da Facens">
+    </p>
+</body>
+<script>
+    //atribuir CSS via programação
+    let titulo = document.querySelector('h1')
+    titulo.style.fontSize = '60px'
+    titulo.style.color = 'red'
+
+    let link = document.querySelector('a')
+    link.href = 'http://www.facens.br'
+    link.textContent = 'Facens'
+    link.setAttribute('target', '_blanck')
+
+    let p = document.querySelector('.paragrafo')
+    p.className = 'teste'
+    //remover a classe
+    p.removeAttribute('class')
+</script>
+</html>
