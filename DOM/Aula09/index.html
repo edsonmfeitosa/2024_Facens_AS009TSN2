@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula de AJAX - Fetch</title>
+</head>
+<body>
+    <nav>
+        <a href="../Aula08/ManipulandoTexto.html">Manipulando Texto</a>
+        <a href="../Aula08/ManipulandoPropriedades.html">Manipulando propriedades</a>
+        <a href="../Aula08/ManipulandoEventos.html">Manipulando eventos</a>
+        <a href="../Aula08/CriandoElementos.html">Criando elementos</a>
+    </nav>
+    <hr>
+    <div class="conteudo"></div>
+</body>
+<script>
+    console.log('teste')
+    let links = document.querySelectorAll('a')
+    let pagina = document.querySelector('.conteudo')
+    links.forEach(element => {
+        element.addEventListener('click', (event) =>{
+            event.preventDefault()
+            fetch(element).then(resposta => resposta.text())
+                          .then(dados => pagina.innerHTML = dados)
+        })
+    });
+</script>
+</html>
