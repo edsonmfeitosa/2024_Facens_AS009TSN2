@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - AJAX (PromisseAll)</title>
+</head>
+<body>
+    
+</body>
+<script>
+    async function carregandoDados() {
+        let url1 = 'https://8c96004d-aa9a-482a-9305-82efdf6db544.mock.pstmn.io/setor'
+        let url2 = 'https://8c96004d-aa9a-482a-9305-82efdf6db544.mock.pstmn.io/cargo'
+        let url3 = 'https://8c96004d-aa9a-482a-9305-82efdf6db544.mock.pstmn.io/convenio'
+        
+        let resposta = await Promise.all([
+            fetch(url1),
+            fetch(url2),
+            fetch(url3)
+        ])
+
+        let setores = await resposta[0].json()
+        let cargos = await resposta[1].json()
+        let convenios = await resposta[2].json()
+        console.log(setores)
+        console.log(cargos)
+        console.log(convenios)
+
+        //métodos para trabalhar com Array: find | Filter
+        //Find
+        let setorSelecionado = setores.find(x => x.id == 1)
+        console.log(setorSelecionado)
+        //Filter
+        let cargoSelecionado = cargos.filter(x => x.id == 1)[0]
+        console.log(cargoSelecionado)
+    }
+
+    //carregandoDados()
+    let funcionario = {
+        nome : 'Aula',
+        telefone : '123456',
+        email : 'aula.teste@gmail.com',
+        cpf : '222111333',
+        rg : '1234535',
+        idCargo : 1,
+        idSetor : 1,
+        idConvenio : 1
+    }
+    let stringFunc = JSON.stringify(funcionario)
+    console.log(stringFunc)
+    console.log(JSON.parse(stringFunc))
+
+    //inserirFuncionario(funcionario)
+
+    function inserirFuncionario(func) {
+        const url = 'https://66266bc2052332d55322d1f0.mockapi.io/funcionario'
+        fetch(url, {
+            method : 'Post',
+            headers : {
+                'Content-Type' : 'application/json'
+            },
+            body : JSON.stringify(func)
+        }).then(resposta =>{
+            if (resposta.status == 201) {
+                window.alert('Salvo com sucesso')
+            }
+        })
+    }
+
+</script>
+</html>
