@@ -10,10 +10,15 @@
 </body>
 <script>
     async function carregandoDados() {
-        let url1 = 'https://8c96004d-aa9a-482a-9305-82efdf6db544.mock.pstmn.io/setor'
-        let url2 = 'https://8c96004d-aa9a-482a-9305-82efdf6db544.mock.pstmn.io/cargo'
-        let url3 = 'https://8c96004d-aa9a-482a-9305-82efdf6db544.mock.pstmn.io/convenio'
+        //será substituída essas urls por outras que trazem o mesmo valor, pois tem uma limitação de acesso nesse mockserve API
+        // let url1 = 'https://8c96004d-aa9a-482a-9305-82efdf6db544.mock.pstmn.io/setor'
+        // let url2 = 'https://8c96004d-aa9a-482a-9305-82efdf6db544.mock.pstmn.io/cargo'
+        // let url3 = 'https://8c96004d-aa9a-482a-9305-82efdf6db544.mock.pstmn.io/convenio'
         
+        let url1 = 'https://aulalp2024.free.beeceptor.com/setor'
+        let url2 = 'https://aulalp2024.free.beeceptor.com/cargo'
+        let url3 = 'https://aulalp2024.free.beeceptor.com/convenio'
+
         let resposta = await Promise.all([
             fetch(url1),
             fetch(url2),
@@ -36,7 +41,7 @@
         console.log(cargoSelecionado)
     }
 
-    //carregandoDados()
+    carregandoDados()
     let funcionario = {
         nome : 'Aula',
         telefone : '123456',
