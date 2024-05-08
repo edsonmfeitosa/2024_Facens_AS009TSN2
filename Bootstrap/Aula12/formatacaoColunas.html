@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Site</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous" defer></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous" defer></script>
+  <style>
+    .row{
+        background-color: brown;
+        height: 200px;
+    }
+    .col-3{
+        background-color: aquamarine;
+        border: solid 1px black;
+    }
+
+  </style>
+</head>
+<body>
+<div class="container">
+    <h1>Formatação de Colunas - Alinhamento de itens</h1>
+    <div class="row align-items-center">
+        <div class="col-3">div1</div>
+        <div class="col-3">div2</div>
+        <div class="col-3">div3</div>
+    </div>
+</div>
+<div class="container">
+    <h1>Formatação de Colunas - Alinhamento de itens individuais</h1>
+    <div class="row">
+        <div class="col-3 align-self-start">div1</div>
+        <div class="col-3 align-self-center">div2</div>
+        <div class="col-3 align-self-end">div3</div>
+    </div>
+</div>
+<div class="container">
+    <h1>Formatação de Colunas - Alinhamento de itens por breakPoints</h1>
+    <div class="row align-items-lg-center">
+        <div class="col-3">div1</div>
+        <div class="col-3">div2</div>
+        <div class="col-3">div3</div>
+    </div>
+</div>
+<div class="container">
+    <h1>Formatação de Colunas - Alinhamento de itens na horizontal</h1>
+    <div class="row justify-content-evenly">
+        <div class="col-3">div1</div>
+        <div class="col-3">div2</div>
+        <div class="col-3">div3</div>
+    </div>
+</div>
+<div class="container">
+    <h1>Formatação de Colunas - ordenação de colunas</h1>
+    <div class="row justify-content-evenly">
+        <div class="col-3 order-1">div1</div>
+        <div class="col-3 order-2">div2</div>
+        <div class="col-3 order-0">div3</div>
+    </div>
+</div>
+<div class="container">
+    <h1>Formatação de Colunas - Alinhamento de itens com offset</h1>
+    <div class="row">
+        <div class="col-3">div1</div>
+        <div class="col-3 offset-1">div2</div>
+        <div class="col-3 offset-2">div3</div>
+    </div>
+</div>
+<div class="container">
+    <h1>Formatação de Colunas - Alinhamento de itens automático</h1>
+    <div class="row">
+        <div class="col-3 mx-auto">div1</div>
+        <div class="col-3 mx-auto">div2</div>
+        <div class="col-3 mx-auto">div3</div>
+    </div>
+</div>
+</body>
+</html>
