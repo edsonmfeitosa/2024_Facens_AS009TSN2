@@ -17,8 +17,13 @@
     crossorigin="anonymous"
     defer
   ></script>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    defer
+  />
   <body onload="carregarDados()">
-    <div class="container">
+    <div class="container-fluid">
       <div class="row mt-3">
         <div class="col-12">
           <div id="liveAlertPlaceholder"></div>
@@ -29,8 +34,9 @@
             class="btn btn-primary"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
+            onclick="novoCliente(event)"
           >
-            Novo
+            <i class="bi bi-person-plus-fill"></i> Novo
           </button>
         </div>
         <div class="col-12 col-sm-10">
@@ -47,13 +53,16 @@
         <div class="col-12 col-sm-2" style="margin-top: 33px">
           <button
             type="button"
-            class="btn btn-primary"
+            class="btn btn-secondary"
             onclick="consultar(event)"
           >
-            Consultar
+            <i class="bi bi-search"></i> Consultar
           </button>
         </div>
-        <div class="col-12">
+        <col-12 id="carregando">
+          
+        </col-12>
+        <div class="col-12" id="tabelaDados" style="visibility: hidden;">
           <table class="table">
             <thead>
               <tr>
@@ -105,6 +114,7 @@
             ></button>
           </div>
           <div class="modal-body">
+            <input type="text" name="idCliente" id="idCliente" hidden />
             <div class="mb-3">
               <label for="cadNome" class="form-label">Nome</label>
               <input
@@ -146,82 +156,5 @@
       </div>
     </div>
   </body>
-  <script>
-    let clientes = [];
-    function carregarDados() {
-      const url = "https://66266bc2052332d55322d1f0.mockapi.io/cliente";
-      fetch(url)
-        .then((resposta) => resposta.json())
-        .then((dados) => {
-          clientes = dados;
-          console.log(clientes);
-          montaTabela(clientes);
-        });
-    }
-    function montaTabela(clientes) {
-      debugger;
-      let tbody = document.querySelector("#tbody");
-      tbody.textContent = "";
-      clientes.forEach((element) => {
-        let tr = document.createElement("tr");
-        let thId = document.createElement("th");
-        let tdNome = document.createElement("td");
-        let tdEmail = document.createElement("td");
-        thId.textContent = element.id;
-        tdNome.textContent = element.nome;
-        tdEmail.textContent = element.email;
-        tr.appendChild(thId);
-        tr.appendChild(tdNome);
-        tr.appendChild(tdEmail);
-        tbody.appendChild(tr);
-      });
-    }
-    function consultar(event) {
-      event.preventDefault();
-      let valor = document.querySelector("#pesquisa").value;
-      let clientesSelecionados = clientes.filter(
-        (x) => x.nome.includes(valor) || x.email.includes(valor)
-      );
-      montaTabela(clientesSelecionados);
-    }
-    function salvarCliente(event) {
-      event.preventDefault();
-      debugger;
-      let nome = document.querySelector("#cadNome").value;
-      let email = document.querySelector("#cadEmail").value;
-      const url = "https://66266bc2052332d55322d1f0.mockapi.io/cliente";
-      let cliente = { nome, email };
-      fetch(url, {
-        method: "Post",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(cliente),
-      }).then((resposta) => {
-        //window.alert("Cliente salvo com sucesso.");
-        carregarDados();
-      });
-    }
-
-    //script do alert
-    const alertPlaceholder = document.getElementById("liveAlertPlaceholder");
-    const appendAlert = (message, type) => {
-      const wrapper = document.createElement("div");
-      wrapper.innerHTML = [
-        `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-        `   <div>${message}</div>`,
-        '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-        "</div>",
-      ].join("");
-
-      alertPlaceholder.append(wrapper);
-    };
-
-    const alertTrigger = document.getElementById("liveAlertBtn");
-    if (alertTrigger) {
-      alertTrigger.addEventListener("click", () => {
-        appendAlert("Cliente salvo com sucesso!", "success");
-      });
-    }
-  </script>
+  <script src="Cliente.js"></script>
 </html>
