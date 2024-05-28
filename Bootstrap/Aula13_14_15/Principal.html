@@ -22,7 +22,7 @@
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     defer
   />
-<body>
+<body onload="usuarioLogado()">
     <div class="container">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
@@ -40,10 +40,9 @@
               </li>
 
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+
+            <!-- <i class="bi bi-person-circle"></i>Teste -->
+            <span id="usuario"></span>
           </div>
         </div>
       </nav>
@@ -58,6 +57,11 @@
       let conteudo = document.querySelector('.conteudo')
       conteudo.innerHTML = `
         <iframe src="Cliente.html" width="100%" height="1000px"></iframe>`
+    }
+    function usuarioLogado(){
+      let usuario = document.querySelector('#usuario')
+      //usuario.innerHTML = `<i class="bi bi-person-circle"></i> ${sessionStorage.getItem('email')}`
+      usuario.innerHTML = `<i class="bi bi-person-circle"></i> ${localStorage.getItem('email')}`
     }
 </script>
 </html>
